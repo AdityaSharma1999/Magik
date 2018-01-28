@@ -26,6 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initElements();
+        setListener();
     }
 
     private void initElements(){
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         btn_login_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getData();
                 ParseUser.logInInBackground(username, password, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException e) {

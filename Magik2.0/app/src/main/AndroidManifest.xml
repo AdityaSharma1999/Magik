@@ -36,10 +36,7 @@
             android:value="@string/back4app_client_key" />
 
         <activity android:name=".SignUpActivity" />
-        <activity
-            android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>

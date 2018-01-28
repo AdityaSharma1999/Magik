@@ -86,14 +86,16 @@ public class SignUpActivity extends AppCompatActivity {
     private void attemptRegister(){
         getData();
         ParseUser newUser = new ParseUser();
-        newUser.setUsername(username);
-        newUser.setPassword(password);
-        newUser.setEmail(email);
-        newUser.put("name", name);
-        newUser.put("age", age);
-        newUser.put("gender", gender);
-        newUser.put("height", height);
-        newUser.put("weight", weight);
+        User user = new User(name, email, username, password, age, gender, height, weight);
+        newUser.setUsername(user.getPersonGender());
+        newUser.setPassword(user.getPassword());
+        newUser.setEmail(user.getPersonEmail());
+        newUser.put("name", user.getPersonName());
+        newUser.put("age", user.getPersonAge());
+        newUser.put("gender", user.getPersonGender());
+        newUser.put("height", user.getPersonHeight());
+        newUser.put("weight", user.getPersonWeight());
+        user.setUserObjectID(newUser.getObjectId());
         newUser.signUpInBackground(new SignUpCallback() {
             @Override
             public void done(ParseException e) {
