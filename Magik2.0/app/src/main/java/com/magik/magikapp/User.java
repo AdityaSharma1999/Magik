@@ -5,20 +5,22 @@ package com.magik.magikapp;
  */
 
 public class User {
-    String firstName="";
-    String lastName="";
-    int age=0;
-    String gender="";
-    double height=0.0;
-    double weight=0.0;
 
-    public User(String firstName, String lastName, int age, String gender, double height, double weight)
+    private String person_name;
+    private int person_age;
+    private String person_gender;
+    private double person_height;
+    private double person_weight;
+    private String person_email;
+    private String person_username;
+    private String person_password;
+
+    public User(String name, String email, String username, String password, int age, String gender, double height, double weight)
     {
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.age=age;
-        this.gender=gender;
-        this.height=height;
-        this.weight=weight;
+        person_name= name;
+        person_age =age;
+        person_gender = gender;
+        person_height=height;
+        person_weight=weight;
     }
 }
