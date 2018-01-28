@@ -3,16 +3,20 @@ package com.magik.magikapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.appolica.flubber.Flubber;
 import com.parse.Parse;
 import com.parse.ParseUser;
 
+import org.w3c.dom.Text;
+
 public class YourHealthActivity extends AppCompatActivity {
 
-    private View fitnessScoreView;
+    private TextView fitnessScoreView;
     private String name;
-    private int fitnessScore;
+    private TextView tview_myHealthSummary;
+    private String fitnessScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,12 +24,13 @@ public class YourHealthActivity extends AppCompatActivity {
         setContentView(R.layout.activity_your_health);
         getData();
         initElements();
+        displayData();
         runAnimation();
     }
 
     private void runAnimation(){
         Flubber.with()
-                .animation(Flubber.AnimationPreset.POP) // Slide up animation
+                .animation(Flubber.AnimationPreset.SLIDE_UP) // Slide up animation
                 .repeatCount(1)                              // Repeat once
                 .duration(1000)                              // Last for 1000 milliseconds(1 second)
                 .createFor(fitnessScoreView)                             // Apply it to the view
@@ -33,13 +38,18 @@ public class YourHealthActivity extends AppCompatActivity {
     }
 
     private void initElements(){
-        fitnessScoreView = fitnessScoreView.findViewById(R.id.tv_fitness_score_fancy);
+        fitnessScoreView =  (TextView) findViewById(R.id.tv_fitness_score_fancy);
+        tview_myHealthSummary = (TextView) findViewById(R.id.tv_greeting_health);
     }
 
     private void getData(){
         ParseUser curUser = ParseUser.getCurrentUser();
         name = curUser.get("name").toString();
-        fitnessScore = Integer.parseInt(curUser.get("fitness_score").toString());
+        fitnessScore = curUser.get("fitness_score").toString();
+    }
 
+    private void displayData(){
+        tview_myHealthSummary.setText("Hello " + name + ", your current fitness score is");
+        fitnessScoreView.setText(fitnessScore);
     }
 }
