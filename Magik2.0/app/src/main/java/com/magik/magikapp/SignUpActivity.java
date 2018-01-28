@@ -32,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     private String gender;
     private double height;
     private double weight;
+    private Spinner spinboiz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,8 @@ public class SignUpActivity extends AppCompatActivity {
         etxt_username = (EditText) findViewById(R.id.et_person_username);
         etxt_password = (EditText) findViewById(R.id.et_person_password);
         etxt_age = (EditText) findViewById(R.id.et_person_age);
-        etxt_person_gender = (EditText) findViewById(R.id.et_person_gender);
+        spinboiz=(Spinner) findViewById(R.id.spinner);
+        //etxt_person_gender = (EditText) findViewById(R.id.et_person_gender);
         etxt_height = (EditText) findViewById(R.id.et_person_height);
         etxt_weight = (EditText) findViewById(R.id.et_person_weight);
         btn_signup_confirm = (Button) findViewById(R.id.btn_signup_confirm);
@@ -62,7 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
         username = etxt_username.getText().toString();
         password = etxt_password.getText().toString();
         age = Integer.parseInt(etxt_age.getText().toString());
-        gender = etxt_person_gender.getText().toString();
+        gender = spinboiz.getSelectedItem().toString();//etxt_person_gender.getText().toString();
         height = Double.parseDouble(etxt_height.getText().toString());
         weight = Double.parseDouble(etxt_weight.getText().toString());
 
