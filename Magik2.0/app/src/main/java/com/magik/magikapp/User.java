@@ -15,6 +15,7 @@ public class User {
     private String person_username;
     private String person_password;
     private String person_object_ID;
+    private double fitness_score;
 
     public User(String name, String email, String username, String password, int age, String gender, double height, double weight)
     {
@@ -26,6 +27,16 @@ public class User {
         person_gender = gender;
         person_height=height;
         person_weight=weight;
+        fitness_score = 100;
+    }
+
+    public Double calculateFitnessScore(Boolean improvedFitness){
+        if (improvedFitness == true){
+            fitness_score = fitness_score + 20;
+        } else {
+            fitness_score = fitness_score - 10;
+        }
+        return fitness_score;
     }
 
     public void setPersonName(String name){
@@ -93,6 +104,10 @@ public class User {
 
     public void setUserObjectID(String objectID){
         person_object_ID = objectID;
+    }
+
+    public double getFitness_score(){
+        return fitness_score;
     }
 
 

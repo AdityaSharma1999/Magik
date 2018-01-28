@@ -95,6 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
         newUser.put("gender", user.getPersonGender());
         newUser.put("height", user.getPersonHeight());
         newUser.put("weight", user.getPersonWeight());
+        newUser.put("fitness_score", user.getFitness_score());
         user.setUserObjectID(newUser.getObjectId());
         newUser.signUpInBackground(new SignUpCallback() {
             @Override
