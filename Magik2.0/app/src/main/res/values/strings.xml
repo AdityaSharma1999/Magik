@@ -8,5 +8,8 @@
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">wt51ftYf1E8IW2DwbmsGbx5fi2XDvIMxumYyxbLQ</string>
     <string name="back4app_client_key">JAqHKDWrjphDvgEmVe57ByD9iFhsxM6ghnvhXvt7</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>
