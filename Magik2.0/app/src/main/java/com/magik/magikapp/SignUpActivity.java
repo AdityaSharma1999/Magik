@@ -87,7 +87,7 @@ public class SignUpActivity extends AppCompatActivity {
         getData();
         ParseUser newUser = new ParseUser();
         User user = new User(name, email, username, password, age, gender, height, weight);
-        newUser.setUsername(user.getPersonGender());
+        newUser.setUsername(user.getUsername());
         newUser.setPassword(user.getPassword());
         newUser.setEmail(user.getPersonEmail());
         newUser.put("name", user.getPersonName());
